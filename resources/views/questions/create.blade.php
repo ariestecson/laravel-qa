@@ -19,7 +19,8 @@
                     <div class="form-group">
                         @csrf
                         <label for="question-title">Question Title</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="question-title">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="question-title"
+                            value="{{ old('title') }}">
                         @error('title')
                             <div class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
@@ -28,7 +29,9 @@
                     </div>
                     <div class="form-group">
                         <label for="question-body">Explain your question</label>
-                        <textarea name="body" id="question-body" class="form-control @error('body') is-invalid @enderror" rows="10"></textarea>
+                        <textarea name="body" id="question-body" class="form-control @error('body') is-invalid @enderror" rows="10">
+                            {{ old('body') }}
+                        </textarea>
                         @error('body')
                             <div class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
